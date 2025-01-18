@@ -1,12 +1,10 @@
 package handlers
 
 import (
-	"GoLang/api"
-	"GoLang/internal/tools"
 	"encoding/json"
 	"net/http"
-	"practice/GoLang/api"
-	"practice/GoLang/internal/tools"
+	"github.com/Tanyabatra541/GoLang/api"
+	"github.com/Tanyabatra541/GoLang/internal/tools"
 
 	"github.com/gorilla/schema"
 	log "github.com/sirupsen/logrus"
@@ -35,7 +33,7 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
 	tokenDetails = (*database).GetUserCoins(params.Username)
 	if tokenDetails == nil {
 		log.Error(err)
-		api.RequestErrorHandler(w)
+		api.InternalErrorHandler(w)
 		return
 	}
 

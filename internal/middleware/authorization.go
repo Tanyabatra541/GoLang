@@ -3,8 +3,8 @@ package middleware
 import (
 	"net/http"
 	"errors"
-	"GoLang/api"
-	"GoLang/internal/tools"
+	"github.com/Tanyabatra541/GoLang/api"
+	"github.com/Tanyabatra541/GoLang/internal/tools"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -29,7 +29,7 @@ func Authorization(next http.Handler) http.Handler {
 			return
 		}
 
-		var loginDetails *tools.loginDetails
+		var loginDetails *tools.LoginDetails
 		loginDetails = (*database).GetUserLoginDetails(username)
 
 		if (loginDetails == nil) || (token!=(*loginDetails).AuthToken) {
